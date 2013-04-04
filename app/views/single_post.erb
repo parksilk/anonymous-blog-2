@@ -1,0 +1,14 @@
+<p>Author: <h4><%= @post.author%></h4></p>
+<p>Title: <h4><%= @post.title%></h4></p>
+<p>Content: <h4><%= @post.body%></h4></p>
+
+<% unless @tags.empty? %>
+  <ol>
+    <h6>Tags from this post:</h6>
+      <% @tags.each do |tag| %>
+      <li><%= tag.name %></li>
+    <% end %>
+  </ol>
+<% else %>
+    <h6>This post had no tags.</h6>
+<% end %>
