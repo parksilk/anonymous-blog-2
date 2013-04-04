@@ -13,9 +13,11 @@ post '/new_post' do
                       :body   => params[:body])
 
   clean_tags if params[:tags]
-  p '$' * 50
-  p @post.errors.messages
-  p '$' * 50
+  
+  if clean_tags
+    clean_tags.each { |tag| @post.tags << tag }
+  end
+
   if @post.errors.present?
     erb :new_post_form
   else

@@ -1,8 +1,8 @@
 class CreatePostsTags < ActiveRecord::Migration
   def change
     create_table :posts_tags do |t|
-      t.references :posts
-      t.references :tags
+      t.integer :post_id
+      t.integer :tag_id
     end
   end
 end
