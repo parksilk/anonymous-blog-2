@@ -1,9 +1,25 @@
 .container {
+  background-color: darkgrey;
   margin: 20px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 th {
   text-align: left;
+}
+
+.btn {
+  padding: 4px;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: darkgrey;
+  color: black;
+  text-decoration: none;
+}
+
+#new_post_form textarea {
+  width: 300px;
+  height: 150px
 }
