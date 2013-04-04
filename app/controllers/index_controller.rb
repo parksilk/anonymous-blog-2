@@ -6,3 +6,7 @@ end
 get '/new_post' do
   erb :new_post_form
 end
+
+post 'new_post' do
+  
+end
