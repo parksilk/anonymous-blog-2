@@ -3,8 +3,8 @@
 <p>Content: <h4><%= @post.body%></h4></p>
 
 <% unless @tags.empty? %>
-  <ol>
     <h6>Tags from this post:</h6>
+  <ol>
       <% @tags.each do |tag| %>
       <li><%= tag.name %></li>
     <% end %>

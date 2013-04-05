@@ -28,3 +28,7 @@ th {
   color: red;
   list-style-type: none;
 }
+
+#tag_list {
+  list-style-type: none;
+}

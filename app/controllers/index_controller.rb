@@ -21,18 +21,28 @@ post '/new_post' do
   if @post.errors.present?
     erb :new_post_form
   else
-    erb :single_post
+    redirect "/posts/#{@post.id}"
+    # erb :single_post
   end
 end
 
+get '/posts/:post_id' do
+  current_post
+  current_tags
+  erb :single_post
+end
 
 
+get '/tags' do
+  all_tags
+  erb :all_tags
+end
 
-
-
-
-
-
+get '/tags/:tag_name' do
+  @tag = Tag.find_by_name(params[:tag_name])
+  @posts = @tag.posts
+  erb :posts_by_tag
+end
 
 
 
