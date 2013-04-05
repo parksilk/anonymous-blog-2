@@ -4,6 +4,7 @@ get '/' do
 end
 
 get '/new_post' do
+  @post = Post.new
   erb :new_post_form
 end
 

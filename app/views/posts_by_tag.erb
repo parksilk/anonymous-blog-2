@@ -1,8 +1,10 @@
 <h3>Posts with the "<%=@tag.name%>" tag:</h3>
-<% if @posts %>
+<% unless @posts.empty? %>
   <% @posts.each do |post| %>
     <ul>
       <li><a href='/posts/<%= post.id %>'><%= post.title %></a></li>
     </ul>
   <% end %>
+<% else %>
+  <h4>Oops, there aren't any posts using that tag.</h4>
 <% end %>

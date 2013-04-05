@@ -3,6 +3,7 @@ helpers do
   def clean_tags
     tags = params[:tags].split(',')
     tags.each { |t| t.strip! }
+    tags.delete("")
     @tags = []
     tags.each { |tag| @tags << Tag.find_or_create_by_name(tag) }
     @tags
@@ -22,10 +23,6 @@ helpers do
 
   def all_tags
     @all_tags = Tag.find(:all, :order => 'name')
-  end
-
-  def posts_by_tag
-    
   end
 
 end

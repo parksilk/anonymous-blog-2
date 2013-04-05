@@ -5,8 +5,8 @@
 
 <% if get_ten_posts %>
   <h3>Check out some of the most recent posts:</h3>
-  <ul>
   <% get_ten_posts.each do |post| %>
+  <ul>
     <li><a href="/posts/<%= post.id %>"><%= post.title %></a></li>
   </ul>
   <% end %>
