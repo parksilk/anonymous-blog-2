@@ -1,6 +1,7 @@
 helpers do
 
   def clean_tags
+    return [] unless params[:tags]
     tags = params[:tags].split(',')
     tags.each { |t| t.strip! }
     tags.delete("")

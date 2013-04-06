@@ -11,20 +11,14 @@ end
 post '/new_post' do
   @post = Post.create(:author => params[:author],
                       :title  => params[:title],
-                      :body   => params[:body])
+                      :body   => params[:body],)
 
-  clean_tags if params[:tags]
-  
-  if clean_tags
-    clean_tags.each { |tag| @post.tags << tag }
-  end
+  # abort if post failed to save
+  return erb :new_post_form if @post.errors.present?
 
-  if @post.errors.present?
-    erb :new_post_form
-  else
-    redirect "/posts/#{@post.id}"
-    # erb :single_post
-  end
+  clean_tags.each { |tag| @post.tags << tag }
+
+  redirect "/posts/#{@post.id}"
 end
 
 get '/posts/:post_id' do

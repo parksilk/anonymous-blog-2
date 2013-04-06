@@ -1,11 +1,11 @@
 <h3>Create a new post:</h3>
 
   <% if @post.errors.present? %>
+    <ul>
     <% @post.errors.full_messages.each do |message| %>
-      <ul>
-        <li><span class='errors'><%= message %></span></li>
-      </ul>
+      <li><span class='errors'><%= message %></span></li>
     <% end %>
+    </ul>
   <% end %>
 
 <form action='new_post' method='post' id='new_post_form'>

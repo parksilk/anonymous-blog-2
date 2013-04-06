@@ -1,8 +1,8 @@
 <h3>Browse by tag:</h3>
 <% if all_tags %>
+  <ul id='tag_list'>
   <% all_tags.each do |tag| %>
-    <ul id='tag_list'>
-      <li><a href='/tags/<%= tag.name %>'><%= tag.name %></a></li>
-    </ul>
+    <li><a href='/tags/<%= tag.name %>'><%= tag.name %></a></li>
   <% end %>
+  </ul>
 <% end %>

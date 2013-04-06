@@ -4,11 +4,11 @@
 
 <% unless @tags.empty? %>
     <h6>Tags from this post:</h6>
+    <ul>
     <% @tags.each do |tag| %>
-      <ul>
-        <li><a href='/tags/<%= tag.name %>'><%= tag.name %></a></li>
-      </ul>
+      <li><a href='/tags/<%= tag.name %>'><%= tag.name %></a></li>
     <% end %>
+    </ul>
 <% else %>
     <h6>This post had no tags.</h6>
 <% end %>
