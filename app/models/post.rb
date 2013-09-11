@@ -3,4 +3,8 @@ class Post < ActiveRecord::Base
 
   validates :title, :presence => true
   validates :body, :presence => true
+
+  def post_time
+    self.created_at    
+  end
 end

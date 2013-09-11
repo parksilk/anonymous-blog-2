@@ -13,6 +13,8 @@
     <h6>No tags.</h6>
 <% end %>
 
-Posted: <%= time_in_words(@post.created_at) %>
-
+Posted: <%= time_in_words(@post.post_time) %> 
+        at <%= @post.created_at.hour %>:<%= @post.created_at.min %>
+<br>
+<br>
 <a class='btn-delete' href="/posts/delete/<%= @post.id %>">Delete this post</a>
