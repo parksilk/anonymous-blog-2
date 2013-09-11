@@ -13,7 +13,8 @@ helpers do
   end
 
   def get_ten_posts
-    @posts = Post.find(:all, :order => "created_at", :limit => 10)
+    @posts = Post.all(:order => "created_at DESC", :limit => 10)
+    # @posts = Post.find(:all, :order => "created_at DESC", :limit => 10)
   end
 
   def current_post

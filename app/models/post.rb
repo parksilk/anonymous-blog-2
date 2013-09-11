@@ -5,6 +5,14 @@ class Post < ActiveRecord::Base
   validates :body, :presence => true
 
   def post_time
-    self.created_at    
+    hour = self.created_at.hour
+    ampm = "a.m."
+    if hour >= 13
+      hour -= 12
+      ampm = "p.m."
+    end
+    min  = self.created_at.min
+
+    "#{hour}:#{min} #{ampm}"
   end
 end
