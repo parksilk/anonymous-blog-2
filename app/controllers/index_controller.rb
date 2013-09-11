@@ -27,6 +27,11 @@ get '/posts/:post_id' do
   erb :single_post
 end
 
+get '/posts/delete/:post_id' do
+  current_post
+  @post.destroy
+  redirect '/'
+end
 
 get '/tags' do
   all_tags
@@ -38,15 +43,6 @@ get '/tags/:tag_name' do
   @posts = @tag.posts
   erb :posts_by_tag
 end
-
-
-
-
-
-
-
-
-
 
 
 

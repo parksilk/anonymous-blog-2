@@ -1,5 +1,7 @@
 helpers do
 
+  include SinatraMore::FormatHelpers
+
   def clean_tags
     return [] unless params[:tags]
     tags = params[:tags].split(',')
@@ -25,5 +27,4 @@ helpers do
   def all_tags
     @all_tags = Tag.find(:all, :order => 'name')
   end
-
 end

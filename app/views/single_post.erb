@@ -1,14 +1,18 @@
-<p>Author: <h4><%= @post.author%></h4></p>
-<p>Title: <h4><%= @post.title%></h4></p>
-<p>Content: <h4><%= @post.body%></h4></p>
+<p>Title: <%= @post.title%></p>
+<p>by: <%= @post.author%></p>
+<p>Post: <%= @post.body%></p>
 
 <% unless @tags.empty? %>
-    <h6>Tags from this post:</h6>
+    <h5>Tags:</h5>
     <ul>
     <% @tags.each do |tag| %>
       <li><a href='/tags/<%= tag.name %>'><%= tag.name %></a></li>
     <% end %>
     </ul>
 <% else %>
-    <h6>This post had no tags.</h6>
+    <h6>No tags.</h6>
 <% end %>
+
+Posted: <%= time_in_words(@post.created_at) %>
+
+<a class='btn-delete' href="/posts/delete/<%= @post.id %>">Delete this post</a>

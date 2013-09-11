@@ -3,6 +3,10 @@ require ::File.expand_path('../config/environment',  __FILE__)
 
 set :app_file, __FILE__
 
+class Application < Sinatra::Base
+  register SinatraMore::MarkupPlugin
+end
+
 configure do
   # See: http://www.sinatrarb.com/faq.html#sessions
   enable :sessions
