@@ -32,12 +32,16 @@ helpers do
   # This will return the current user, if they exist
   def current_user
     if session[:remember_token]
-      @current_user ||= User.find_by_id(session[:user_id])
+      @current_user ||= User.find_by_remember_token(session[:remember_token]) #bugbug
     end
   end
 
+  def login(user)
+    session[:remember_token] = user.remember_token
+  end
+
   # Returns true if current_user exists, false otherwise
-  def signed_in?
+  def logged_in?
     !current_user.nil?
   end
 

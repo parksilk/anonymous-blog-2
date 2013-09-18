@@ -1,5 +1,5 @@
 <p>Title: <%= @post.title%></p>
-<p>by: <%= @post.author%></p>
+<p>by: <a href=""><%= @post.author%></p></a>
 <p>Post: <%= @post.body%></p>
 
 <% unless @tags.empty? %>
@@ -16,4 +16,4 @@
 Posted: <%= time_in_words(@post.created_at) %> at <%= @post.post_time %>
 <br>
 <br>
-<a class='btn-delete' href="/posts/delete/<%= @post.id %>">Delete this post</a>
+<a class='btn-delete' href="/posts/delete/<%= @post.id %>">Delete post</a>

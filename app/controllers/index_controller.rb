@@ -9,6 +9,7 @@ get '/new_post' do
 end
 
 post '/new_post' do
+  current_user
   @post = Post.create(:author => params[:author],
                       :title  => params[:title],
                       :body   => params[:body],)

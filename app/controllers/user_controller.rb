@@ -9,7 +9,7 @@ post '/signup' do
     login(@user)
     redirect '/'
   else
-    erb :index
+    erb :signup
   end
 end
 
@@ -19,8 +19,11 @@ get '/login' do
 end
 
 post '/login' do
-@password = params[:password]
-@user= User.find_by_email(params[:user][:email])
+@password = params[:user][:password]
+@user     = User.find_by_email(params[:user][:email].downcase)
+p params
+p @password
+p @user
   if @user && @user.authenticate(params[:user][:password])
     login(@user)
     erb :index

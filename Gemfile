@@ -18,6 +18,9 @@ gem 'shotgun'
 gem 'bcrypt-ruby'
 gem 'sinatra_more'
 
+# Allows for the app to be loaded in console
+gem 'tux'
+
 group :test do
   gem 'faker'
   gem 'rspec'

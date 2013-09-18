@@ -1,4 +1,4 @@
-<h3>Create a new post:</h3>
+<h3><%= @current_user %>Create a new post:</h3>
 
   <% if @post.errors.present? %>
     <ul>
@@ -9,12 +9,10 @@
   <% end %>
 
 <form action='new_post' method='post' id='new_post_form'>
-  Author:
-  <div><input type='text' name='author' value='<%=@post.author%>' placeholder='Your name (optional)' autofocus='autofocus'></div><br>
   Title:
   <div><input type='text' name='title' value='<%=@post.title%>' placeholder='Give your post a title'></div><br>
   Content:
-  <div><textarea name="body" placeholder="Write your post"><%=@post.body%></textarea></div><br>
+  <div><textarea name="body" placeholder="Write your post"><%= @post.body %></textarea></div><br>
   Tags:
   <div><input type="text" name="tags" value='<%=  @post.tags.inject("") {|m,t| m << t.name + ", "} %>' placeholder="Separate tags with commas"></div>
   <p><input type="submit" value="Submit Post"></p>
