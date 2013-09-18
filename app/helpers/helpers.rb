@@ -12,7 +12,7 @@ helpers do
     @tags
   end
 
-  def get_ten_posts
+  def get_ten_recent_posts
     @posts = Post.all(:order => "created_at DESC", :limit => 10)
     # @posts = Post.find(:all, :order => "created_at DESC", :limit => 10)
   end
@@ -28,4 +28,17 @@ helpers do
   def all_tags
     @all_tags = Tag.find(:all, :order => 'name')
   end
+
+  # This will return the current user, if they exist
+  def current_user
+    if session[:remember_token]
+      @current_user ||= User.find_by_id(session[:user_id])
+    end
+  end
+
+  # Returns true if current_user exists, false otherwise
+  def signed_in?
+    !current_user.nil?
+  end
+
 end

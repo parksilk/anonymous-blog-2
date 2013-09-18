@@ -1,0 +1,22 @@
+<form action='/signup' method='post'>
+<h2>Sign Up</h2>
+<% if @user %>
+  <% if @user.errors.present? %>
+      <% @user.errors.full_messages.each do |message| %>
+      <ul>
+        <li><span class="errors"><%= message %></li>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>
+
+  Name:<br>
+  <input type='text' name='user[name]' autofocus='autofocus'><br><br>
+  Email:<br>
+  <input type='email' name='user[email]'><br><br>
+  Password:<br>
+  <input type='password' name='user[password]'><br><br>
+  Confirm Password:<br>
+  <input type='password' name='user[password_confirmation]'><br><br>
+  <input type='submit' value='Signup'>
+</form>

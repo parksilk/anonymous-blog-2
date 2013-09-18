@@ -14,9 +14,8 @@ gem 'activesupport'
 gem 'activerecord'
 
 gem 'rake'
-
 gem 'shotgun'
-
+gem 'bcrypt-ruby'
 gem 'sinatra_more'
 
 group :test do
